@@ -62,7 +62,7 @@ export const updateAnim = async (req, res) => {
     let oldName = anim.media.public_id;
     let newName = anim.media.public_id.split("/")[0] + "/" + req.body.title;
 
-    const result = await renameFile(oldName, newName);
+    const result = await renameFile(encodeURIComponent(oldName), newName);
 
     let media = anim.media;
 
